@@ -1,0 +1,315 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Native memory allocation (mmap) failed to map 2147483648 bytes for committing reserved memory.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (os_linux.cpp:2640), pid=7582, tid=0x00007f2ad225d700
+#
+# JRE version:  (8.0_181-b13) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (25.181-b13 mixed mode linux-amd64 compressed oops)
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f2acc00b000):  JavaThread "Unknown thread" [_thread_in_vm, id=7599, stack(0x00007f2ad215d000,0x00007f2ad225e000)]
+
+Stack: [0x00007f2ad215d000,0x00007f2ad225e000],  sp=0x00007f2ad225c3c0,  free space=1020k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0xad21aa]  VMError::report_and_die()+0x2ba
+V  [libjvm.so+0x5022db]  report_vm_out_of_memory(char const*, int, unsigned long, VMErrorType, char const*)+0x8b
+V  [libjvm.so+0x92fe33]  os::Linux::commit_memory_impl(char*, unsigned long, bool)+0x123
+V  [libjvm.so+0x930059]  os::pd_commit_memory(char*, unsigned long, unsigned long, bool)+0x29
+V  [libjvm.so+0x9272ba]  os::commit_memory(char*, unsigned long, unsigned long, bool)+0x2a
+V  [libjvm.so+0x99d2e3]  PSVirtualSpace::expand_by(unsigned long)+0x53
+V  [libjvm.so+0x98d3f7]  PSOldGen::initialize(ReservedSpace, unsigned long, char const*, int)+0xb7
+V  [libjvm.so+0x2dc1ea]  AdjoiningGenerations::AdjoiningGenerations(ReservedSpace, GenerationSizer*, unsigned long)+0x39a
+V  [libjvm.so+0x951426]  ParallelScavengeHeap::initialize()+0x1d6
+V  [libjvm.so+0xa9a1e3]  Universe::initialize_heap()+0xf3
+V  [libjvm.so+0xa9a74e]  universe_init()+0x3e
+V  [libjvm.so+0x644875]  init_globals()+0x65
+V  [libjvm.so+0xa7eefe]  Threads::create_vm(JavaVMInitArgs*, bool*)+0x23e
+V  [libjvm.so+0x6d8d74]  JNI_CreateJavaVM+0x74
+C  [libjli.so+0x797e]  JavaMain+0x9e
+C  [libpthread.so.0+0x76ba]  start_thread+0xca
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x00007f2acc00b000 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=7599, stack(0x00007f2ad215d000,0x00007f2ad225e000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 00:2f 5249332                            /home/dhanuka/software/jdk1.8.0_181/bin/java
+00600000-00601000 rw-p 00000000 00:2f 5249332                            /home/dhanuka/software/jdk1.8.0_181/bin/java
+01327000-01348000 rw-p 00000000 00:00 0                                  [heap]
+780000000-7c0000000 rw-p 00000000 00:00 0 
+7f2abb60e000-7f2abb7a8000 rw-p 00000000 00:00 0 
+7f2abb7a8000-7f2abbba8000 ---p 00000000 00:00 0 
+7f2abbba8000-7f2abbdb3000 rw-p 00000000 00:00 0 
+7f2abbdb3000-7f2abc169000 ---p 00000000 00:00 0 
+7f2abc169000-7f2abc3d9000 rwxp 00000000 00:00 0 
+7f2abc3d9000-7f2acb169000 ---p 00000000 00:00 0 
+7f2acb169000-7f2acb184000 r-xp 00000000 00:2f 5769737                    /home/dhanuka/software/jdk1.8.0_181/jre/lib/amd64/libzip.so
+7f2acb184000-7f2acb384000 ---p 0001b000 00:2f 5769737                    /home/dhanuka/software/jdk1.8.0_181/jre/lib/amd64/libzip.so
+7f2acb384000-7f2acb385000 rw-p 0001b000 00:2f 5769737                    /home/dhanuka/software/jdk1.8.0_181/jre/lib/amd64/libzip.so
+7f2acb385000-7f2acb390000 r-xp 00000000 08:01 1444771                    /lib/x86_64-linux-gnu/libnss_files-2.23.so
+7f2acb390000-7f2acb58f000 ---p 0000b000 08:01 1444771                    /lib/x86_64-linux-gnu/libnss_files-2.23.so
+7f2acb58f000-7f2acb590000 r--p 0000a000 08:01 1444771                    /lib/x86_64-linux-gnu/libnss_files-2.23.so
+7f2acb590000-7f2acb591000 rw-p 0000b000 08:01 1444771                    /lib/x86_64-linux-gnu/libnss_files-2.23.so
+7f2acb591000-7f2acb597000 rw-p 00000000 00:00 0 
+7f2acb597000-7f2acb5a2000 r-xp 00000000 08:01 1444781                    /lib/x86_64-linux-gnu/libnss_nis-2.23.so
+7f2acb5a2000-7f2acb7a1000 ---p 0000b000 08:01 1444781                    /lib/x86_64-linux-gnu/libnss_nis-2.23.so
+7f2acb7a1000-7f2acb7a2000 r--p 0000a000 08:01 1444781                    /lib/x86_64-linux-gnu/libnss_nis-2.23.so
+7f2acb7a2000-7f2acb7a3000 rw-p 0000b000 08:01 1444781                    /lib/x86_64-linux-gnu/libnss_nis-2.23.so
+7f2acb7a3000-7f2acb7b9000 r-xp 00000000 08:01 1444765                    /lib/x86_64-linux-gnu/libnsl-2.23.so
+7f2acb7b9000-7f2acb9b8000 ---p 00016000 08:01 1444765                    /lib/x86_64-linux-gnu/libnsl-2.23.so
+7f2acb9b8000-7f2acb9b9000 r--p 00015000 08:01 1444765                    /lib/x86_64-linux-gnu/libnsl-2.23.so
+7f2acb9b9000-7f2acb9ba000 rw-p 00016000 08:01 1444765                    /lib/x86_64-linux-gnu/libnsl-2.23.so
+7f2acb9ba000-7f2acb9bc000 rw-p 00000000 00:00 0 
+7f2acb9bc000-7f2acb9c4000 r-xp 00000000 08:01 1444767                    /lib/x86_64-linux-gnu/libnss_compat-2.23.so
+7f2acb9c4000-7f2acbbc3000 ---p 00008000 08:01 1444767                    /lib/x86_64-linux-gnu/libnss_compat-2.23.so
+7f2acbbc3000-7f2acbbc4000 r--p 00007000 08:01 1444767                    /lib/x86_64-linux-gnu/libnss_compat-2.23.so
+7f2acbbc4000-7f2acbbc5000 rw-p 00008000 08:01 1444767                    /lib/x86_64-linux-gnu/libnss_compat-2.23.so
+7f2acbbc5000-7f2acbbf0000 r-xp 00000000 00:2f 5769731                    /home/dhanuka/software/jdk1.8.0_181/jre/lib/amd64/libjava.so
+7f2acbbf0000-7f2acbdef000 ---p 0002b000 00:2f 5769731                    /home/dhanuka/software/jdk1.8.0_181/jre/lib/amd64/libjava.so
+7f2acbdef000-7f2acbdf1000 rw-p 0002a000 00:2f 5769731                    /home/dhanuka/software/jdk1.8.0_181/jre/lib/amd64/libjava.so
+7f2acbdf1000-7f2acbdfe000 r-xp 00000000 00:2f 5769736                    /home/dhanuka/software/jdk1.8.0_181/jre/lib/amd64/libverify.so
+7f2acbdfe000-7f2acbffe000 ---p 0000d000 00:2f 5769736                    /home/dhanuka/software/jdk1.8.0_181/jre/lib/amd64/libverify.so
+7f2acbffe000-7f2acc000000 rw-p 0000d000 00:2f 5769736                    /home/dhanuka/software/jdk1.8.0_181/jre/lib/amd64/libverify.so
+7f2acc000000-7f2acc036000 rw-p 00000000 00:00 0 
+7f2acc036000-7f2ad0000000 ---p 00000000 00:00 0 
+7f2ad0056000-7f2ad0147000 rw-p 00000000 00:00 0 
+7f2ad0147000-7f2ad014e000 r-xp 00000000 08:01 1444826                    /lib/x86_64-linux-gnu/librt-2.23.so
+7f2ad014e000-7f2ad034d000 ---p 00007000 08:01 1444826                    /lib/x86_64-linux-gnu/librt-2.23.so
+7f2ad034d000-7f2ad034e000 r--p 00006000 08:01 1444826                    /lib/x86_64-linux-gnu/librt-2.23.so
+7f2ad034e000-7f2ad034f000 rw-p 00007000 08:01 1444826                    /lib/x86_64-linux-gnu/librt-2.23.so
+7f2ad034f000-7f2ad0457000 r-xp 00000000 08:01 1444742                    /lib/x86_64-linux-gnu/libm-2.23.so
+7f2ad0457000-7f2ad0656000 ---p 00108000 08:01 1444742                    /lib/x86_64-linux-gnu/libm-2.23.so
+7f2ad0656000-7f2ad0657000 r--p 00107000 08:01 1444742                    /lib/x86_64-linux-gnu/libm-2.23.so
+7f2ad0657000-7f2ad0658000 rw-p 00108000 08:01 1444742                    /lib/x86_64-linux-gnu/libm-2.23.so
+7f2ad0658000-7f2ad1334000 r-xp 00000000 00:2f 5769713                    /home/dhanuka/software/jdk1.8.0_181/jre/lib/amd64/server/libjvm.so
+7f2ad1334000-7f2ad1534000 ---p 00cdc000 00:2f 5769713                    /home/dhanuka/software/jdk1.8.0_181/jre/lib/amd64/server/libjvm.so
+7f2ad1534000-7f2ad160e000 rw-p 00cdc000 00:2f 5769713                    /home/dhanuka/software/jdk1.8.0_181/jre/lib/amd64/server/libjvm.so
+7f2ad160e000-7f2ad1659000 rw-p 00000000 00:00 0 
+7f2ad1659000-7f2ad1819000 r-xp 00000000 08:01 1444672                    /lib/x86_64-linux-gnu/libc-2.23.so
+7f2ad1819000-7f2ad1a19000 ---p 001c0000 08:01 1444672                    /lib/x86_64-linux-gnu/libc-2.23.so
+7f2ad1a19000-7f2ad1a1d000 r--p 001c0000 08:01 1444672                    /lib/x86_64-linux-gnu/libc-2.23.so
+7f2ad1a1d000-7f2ad1a1f000 rw-p 001c4000 08:01 1444672                    /lib/x86_64-linux-gnu/libc-2.23.so
+7f2ad1a1f000-7f2ad1a23000 rw-p 00000000 00:00 0 
+7f2ad1a23000-7f2ad1a26000 r-xp 00000000 08:01 1444696                    /lib/x86_64-linux-gnu/libdl-2.23.so
+7f2ad1a26000-7f2ad1c25000 ---p 00003000 08:01 1444696                    /lib/x86_64-linux-gnu/libdl-2.23.so
+7f2ad1c25000-7f2ad1c26000 r--p 00002000 08:01 1444696                    /lib/x86_64-linux-gnu/libdl-2.23.so
+7f2ad1c26000-7f2ad1c27000 rw-p 00003000 08:01 1444696                    /lib/x86_64-linux-gnu/libdl-2.23.so
+7f2ad1c27000-7f2ad1c3d000 r-xp 00000000 00:2f 5380453                    /home/dhanuka/software/jdk1.8.0_181/lib/amd64/jli/libjli.so
+7f2ad1c3d000-7f2ad1e3c000 ---p 00016000 00:2f 5380453                    /home/dhanuka/software/jdk1.8.0_181/lib/amd64/jli/libjli.so
+7f2ad1e3c000-7f2ad1e3d000 rw-p 00015000 00:2f 5380453                    /home/dhanuka/software/jdk1.8.0_181/lib/amd64/jli/libjli.so
+7f2ad1e3d000-7f2ad1e55000 r-xp 00000000 08:01 1444818                    /lib/x86_64-linux-gnu/libpthread-2.23.so
+7f2ad1e55000-7f2ad2054000 ---p 00018000 08:01 1444818                    /lib/x86_64-linux-gnu/libpthread-2.23.so
+7f2ad2054000-7f2ad2055000 r--p 00017000 08:01 1444818                    /lib/x86_64-linux-gnu/libpthread-2.23.so
+7f2ad2055000-7f2ad2056000 rw-p 00018000 08:01 1444818                    /lib/x86_64-linux-gnu/libpthread-2.23.so
+7f2ad2056000-7f2ad205a000 rw-p 00000000 00:00 0 
+7f2ad205a000-7f2ad2080000 r-xp 00000000 08:01 1444644                    /lib/x86_64-linux-gnu/ld-2.23.so
+7f2ad215d000-7f2ad2160000 ---p 00000000 00:00 0 
+7f2ad2160000-7f2ad2262000 rw-p 00000000 00:00 0 
+7f2ad2274000-7f2ad227c000 rw-s 00000000 08:01 1479981                    /tmp/hsperfdata_dhanuka/7582
+7f2ad227c000-7f2ad227d000 rw-p 00000000 00:00 0 
+7f2ad227d000-7f2ad227e000 r--p 00000000 00:00 0 
+7f2ad227e000-7f2ad227f000 rw-p 00000000 00:00 0 
+7f2ad227f000-7f2ad2280000 r--p 00025000 08:01 1444644                    /lib/x86_64-linux-gnu/ld-2.23.so
+7f2ad2280000-7f2ad2281000 rw-p 00026000 08:01 1444644                    /lib/x86_64-linux-gnu/ld-2.23.so
+7f2ad2281000-7f2ad2282000 rw-p 00000000 00:00 0 
+7ffca7d98000-7ffca7dba000 rw-p 00000000 00:00 0                          [stack]
+7ffca7dd7000-7ffca7dda000 r--p 00000000 00:00 0                          [vvar]
+7ffca7dda000-7ffca7ddc000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Xms3g -Xmx3g -Dclassworlds.conf=/home/dhanuka/software/apache-maven-3.5.4/bin/m2.conf -Dmaven.home=/home/dhanuka/software/apache-maven-3.5.4 -Dlibrary.jansi.path=/home/dhanuka/software/apache-maven-3.5.4/lib/jansi-native -Dmaven.multiModuleProjectDirectory=/home/dhanuka/projects/flink-research/stream-analytics 
+java_command: org.codehaus.plexus.classworlds.launcher.Launcher clean install -Dmaven.test.skip=true -DskipITs
+java_class_path (initial): /home/dhanuka/software/apache-maven-3.5.4/boot/plexus-classworlds-2.5.2.jar
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/home/dhanuka/software/jdk1.8.0_181
+PATH=/home/dhanuka/bin:/home/dhanuka/.local/bin:/u01/app/oracle/product/11.2.0/xe/bin:/home/dhanuka/bin/Sencha/Cmd:/home/dhanuka/software/jdk1.8.0_181/bin:/u01/app/oracle/product/11.2.0/xe/bin:/home/dhanuka/bin/Sencha/Cmd:/home/dhanuka/software/jdk1.8.0_181/bin:/home/dhanuka/.nvm/versions/node/v5.0.0/bin:/home/dhanuka/bin:/home/dhanuka/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/dhanuka/software/jdk1.8.0_181/bin:/home/dhanuka/software/apache-maven-3.5.4/bin:/home/dhanuka/software/spark-2.2.1-bin-hadoop2.7/bin:/home/uranadh/research/spark/sbt-launcher-packaging-0.13.13/bin:/home/dhanuka/software/scala-2.11.8/bin:/home/dhanuka/software/hadoop-2.7.4/bin:/home/dhanuka/software/apache-cassandra-2.0.17/bin:/home/dhanuka/software/hazelcast-3.10.5/bin:/home/dhanuka/software/apache-activemq-5.14.5/bin:/home/dhanuka/software/elasticsearch-6.3.2/bin:/home/dhanuka/software/jdk1.8.0_181/bin:/home/dhanuka/software/apache-maven-3.5.4/bin:/home/dhanuka/software/spark-2.2.1-bin-hadoop2.7/bin:/home/uranadh/research/spark/sbt-launcher-packaging-0.13.13/bin:/home/dhanuka/software/scala-2.11.8/bin:/home/dhanuka/software/hadoop-2.7.4/bin:/home/dhanuka/software/apache-cassandra-2.0.17/bin:/home/dhanuka/software/hazelcast-3.10.5/bin:/home/dhanuka/software/apache-activemq-5.14.5/bin:/home/dhanuka/software/elasticsearch-6.3.2/bin
+LD_LIBRARY_PATH=/u01/app/oracle/product/11.2.0/xe/lib:/u01/app/oracle/product/11.2.0/xe/lib:
+SHELL=/bin/bash
+DISPLAY=:0
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0xad2a40], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0xad2a40], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x92a610], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x92a610], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x92a610], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x92a610], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x92be70], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGINT: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGTERM: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGQUIT: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+
+
+---------------  S Y S T E M  ---------------
+
+OS:DISTRIB_ID=Ubuntu
+DISTRIB_RELEASE=16.04
+DISTRIB_CODENAME=xenial
+DISTRIB_DESCRIPTION="Ubuntu 16.04.5 LTS"
+
+uname:Linux 4.15.0-43-generic #46~16.04.1-Ubuntu SMP Fri Dec 7 13:31:08 UTC 2018 x86_64
+libc:glibc 2.23 NPTL 2.23 
+rlimit: STACK 8192k, CORE 0k, NPROC 84525, NOFILE 1048576, AS infinity
+load average:2.66 2.28 2.42
+
+/proc/meminfo:
+MemTotal:       21698356 kB
+MemFree:          239888 kB
+MemAvailable:     399924 kB
+Buffers:           36744 kB
+Cached:           701560 kB
+SwapCached:       387368 kB
+Active:         18716940 kB
+Inactive:        2334356 kB
+Active(anon):   18468876 kB
+Inactive(anon):  2172100 kB
+Active(file):     248064 kB
+Inactive(file):   162256 kB
+Unevictable:         112 kB
+Mlocked:             112 kB
+SwapTotal:       4880892 kB
+SwapFree:         398508 kB
+Dirty:              1960 kB
+Writeback:             0 kB
+AnonPages:      19929288 kB
+Mapped:           506444 kB
+Shmem:            327848 kB
+Slab:             187012 kB
+SReclaimable:      72512 kB
+SUnreclaim:       114500 kB
+KernelStack:       23080 kB
+PageTables:       109420 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    15730068 kB
+Committed_AS:   44194840 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+ShmemHugePages:        0 kB
+ShmemPmdMapped:        0 kB
+CmaTotal:              0 kB
+CmaFree:               0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:      433088 kB
+DirectMap2M:    21700608 kB
+
+
+CPU:total 2 (initial active 2) (2 cores per cpu, 1 threads per core) family 6 model 78 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, clmul, 3dnowpref, lzcnt, tsc, tscinvbit
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 78
+model name	: Intel(R) Core(TM) i7-6500U CPU @ 2.50GHz
+stepping	: 3
+cpu MHz		: 2591.998
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 2
+core id		: 0
+cpu cores	: 2
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single pti fsgsbase avx2 invpcid rdseed clflushopt
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf
+bogomips	: 5183.99
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 78
+model name	: Intel(R) Core(TM) i7-6500U CPU @ 2.50GHz
+stepping	: 3
+cpu MHz		: 2591.998
+cache size	: 4096 KB
+physical id	: 0
+siblings	: 2
+core id		: 1
+cpu cores	: 2
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 22
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx rdtscp lm constant_tsc rep_good nopl xtopology nonstop_tsc cpuid pni pclmulqdq ssse3 cx16 pcid sse4_1 sse4_2 x2apic movbe popcnt aes xsave avx rdrand hypervisor lahf_lm abm 3dnowprefetch invpcid_single pti fsgsbase avx2 invpcid rdseed clflushopt
+bugs		: cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf
+bogomips	: 5183.99
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 21698356k(239888k free), swap 4880892k(398508k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (25.181-b13) for linux-amd64 JRE (1.8.0_181-b13), built on Jul  7 2018 00:56:38 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Thu Jan 24 09:26:19 2019
+elapsed time: 0 seconds (0d 0h 0m 0s)
+

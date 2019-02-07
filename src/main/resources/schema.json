@@ -1,0 +1,24 @@
+{
+ 
+  "type": "object",
+  "properties": {
+    "DriverID": {
+      "type": "integer"
+    },
+    "HireID": {
+      "type": "integer"
+    },
+    "CorrelationID": {
+      "type": "string"
+    },
+    "PassengerName": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "DriverID",
+    "HireID",
+    "CorrelationID",
+    "PassengerName"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+	"DriverID": 7991,
+	"AlertId": "123",
+	"Conditions": [
+		{
+			"Attribute": "HireID",
+			"Operator": "=",
+			"Value": "4508724",
+			"DataType":"int",
+			"LogicalOperator":"&&"
+		},
+		{
+			"Attribute": "PassengerName",
+			"Operator": "=",
+			"Value": "Dhanuka",
+			"DataType":"string",
+			"LogicalOperator":"&&"
+		},
+		{
+			"Attribute": "CorrelationID",
+			"Operator": "regex",
+			"Value": "193400835",
+			"DataType":"string",
+			"LogicalOperator":"&&"
+		}
+	]
+}
