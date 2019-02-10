@@ -32,17 +32,9 @@ public class FlinkRuleJob {
 
     public static void main(String[] args) throws Exception {
 
-	String query = FileHandler.readInputStream(FileHandler.getResourceAsStream("query.sql"));
-	if (query == null) {
-	    LOGGER.error("*****************  Can't read resources ************************");
-	} else {
-	    LOGGER.info("======================== " + query + " =============================");
-	}
 	Properties props = FileHandler.loadResourceProperties("application.properties");
 	Properties kConsumer = FileHandler.loadResourceProperties("consumer.properties");
 	Properties kProducer = FileHandler.loadResourceProperties("producer.properties");
-	String hzConfig = FileHandler.readInputStream(FileHandler.getResourceAsStream("hazelcast-client.xml"));
-	String schemaContent = FileHandler.readInputStream(FileHandler.getResourceAsStream("schema.json"));
 
 	props.setProperty("auto.offset.reset", "latest");
 	props.setProperty("flink.starting-position", "latest");
