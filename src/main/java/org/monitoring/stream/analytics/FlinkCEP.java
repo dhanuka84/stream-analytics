@@ -147,25 +147,12 @@ public class FlinkCEP {
 			    @Override
 			    public boolean filter(Event event) throws Exception {
 				boolean eval = event.getHireID().equals(4508724)
-					&& event.getProviderInfo().equals("Dhanuka")
+					&& event.getPassengerName().equals("Dhanuka")
 					&& event.getCorrelationID().matches(".*193400835.*");
 				// System.out.println("================================== eval 1"+eval);
 				return eval;
 			    }
-			})
-			/*
-			.or(new SimpleCondition<Event>() {
-
-		    private static final long serialVersionUID = 1L;
-
-		    @Override
-		    public boolean filter(Event event) throws Exception {
-			boolean eval = event.getHireID().equals(4508724) && event.getProviderInfo().equals("Dhanuka")
-				&& event.getCorrelationID().matches(".*193400835.*");
-			// System.out.println("================================== eval 2"+eval);
-			return eval;
-		    }
-		})*/;
+			});
 		
 		PatternStream<Event> patternStream = CEP.pattern(filteredEvents, pattern);
 
