@@ -36,7 +36,7 @@ public class Producer {
 	Properties kProducer = FileHandler.loadResourceProperties("producer-test.properties");
 
 	String content = FileUtils.readFileToString(file, "UTF-8");
-	String rule = FileUtils.readFileToString(ruleFile, "UTF-8");
+	//String rule = FileUtils.readFileToString(ruleFile, "UTF-8");
 
 	// Configure the Producer
 	// kProducer.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"localhost:9092");
@@ -46,10 +46,10 @@ public class Producer {
 		"org.apache.kafka.common.serialization.StringSerializer");
 
 	
-	System.out.println( rule);
+	/* System.out.println( rule);
 	Rule ruleObj = (Rule) JSONUtils.convertToObject(rule, Rule.class);
 	RuleParser ruleParser = new RuleParser();
-	System.out.println( ruleObj);
+	System.out.println( ruleObj); */
 	
 
 	
@@ -61,14 +61,14 @@ public class Producer {
 	Random random = new Random();
 	String prefix = "A";
 
-	int rides = 100;
+	int rides = 1;
 	for (int x = 0; x < rides; ++x) {
 	    final int z = x;
 	    final boolean bool = random.nextBoolean();
 	    Future<Integer> result = executor.submit(() -> {
 		String driverId = (bool + ":" + z);
 		
-		org.apache.kafka.clients.producer.Producer ruleProducer = new KafkaProducer(kProducer);
+		/* org.apache.kafka.clients.producer.Producer ruleProducer = new KafkaProducer(kProducer);
 		for (int i = 0; i < 10; ++i) {
 		    
 		    String ruleStr = new String(ruleParser.serialize(ruleObj));
@@ -77,14 +77,14 @@ public class Producer {
 		    ProducerRecord<String, String> rec = new ProducerRecord<String, String>("rule", ruleStr);
 		    ruleProducer.send(rec);
 		}
-		ruleProducer.close();
+		ruleProducer.close(); */
 		
 		String threadName = Thread.currentThread().getName();
 		long tId = Thread.currentThread().getId();
 		System.out.println("Hello " + threadName);
 		org.apache.kafka.clients.producer.Producer producer = new KafkaProducer(kProducer);
 		
-		int count = 10000;
+		int count = 1;
 		System.out.println("count " + count + "===================## start time " + new Date());
 		
 		
@@ -95,7 +95,7 @@ public class Producer {
 		    Event event = deserializer.deserialize(content.getBytes());
 		    event.setEventId(id);
 		    event.setDriverID(driverId);
-		    ProducerRecord<String, String> rec = new ProducerRecord<String, String>("testin",
+		    ProducerRecord<String, String> rec = new ProducerRecord<String, String>("mysql-foobar",
 			    new String(deserializer.serialize(event)));
 		    producer.send(rec);
 		}
